@@ -1,0 +1,25 @@
+import tkinter as tkin
+import time
+import winsound
+
+def setalarm():
+    alarmtime = entry.get()
+    while True:
+        currenttime = time.strftime('%H:%M:%S')
+        if currenttime == alarmtime:
+            winsound.Beep(1000, 800)
+            break
+
+data = tkin.Tk()
+data.title("Alarm")
+
+label = tkin.Label(data, text="Enter time in (HH:MM:SS):")
+label.pack()
+
+entry = tkin.Entry(data)
+entry.pack()
+
+button = tkin.Button(data, text="Set", command=setalarm)
+button.pack()
+
+data.mainloop()
